@@ -1,4 +1,5 @@
 import pytest
+import time
 
 from BASE.base_analyze import analyze_file
 from BASE.base_driver import init_driver
@@ -95,6 +96,7 @@ class TestAddress:
     def test_delete_address(self):
         # 首页，如果没有登录就登录
         self.page.home.login_if_not(self.page)
+        time.sleep(5)
         # 我 点击 设置
         self.page.me.click_setting()
         # 设置 点击 地址管理
@@ -106,7 +108,7 @@ class TestAddress:
         for i in range(10):
             self.page.address_list.click_edit()
             # 判断 删除是否存在
-            if not self.page.address_list.is_delete_exite():
+            if not self.page.address_list.is_delete_exist():
                 # 如果不在,break
                 break
             self.page.address_list.click_delete()

@@ -1,4 +1,5 @@
 import allure
+import time
 from selenium.webdriver.common.by import By
 
 from BASE.base_action import BaseAction
@@ -30,3 +31,5 @@ class HomePage(BaseAction):
 
         # 点击登录
         page.login.click_login()
+
+        time.sleep(5)

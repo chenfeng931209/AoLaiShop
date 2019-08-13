@@ -16,10 +16,10 @@ class AddressListPage(BaseAction):
     # 定位编辑按钮
     edit_button = By.XPATH, "//*[@text='编辑']"
 
-    # 定位编辑按钮
+    # 定位删除按钮
     delete_button = By.XPATH, "//*[@text='删除']"
 
-    # 定位编辑按钮
+    # 定位确认按钮
     commit_button = By.XPATH, "//*[@text='确认']"
 
 
@@ -36,13 +36,14 @@ class AddressListPage(BaseAction):
     def is_default_feature_exist(self):
         return self.is_feature_exite(self.is_default_feature)
 
+    # 判断 删除按钮 是否存在
+    def is_delete_exist(self):
+        return self.is_feature_exite(self.delete_button)
+
     # 点击 默认地址
     def click_default_address(self):
         self.click(self.is_default_feature)
 
-    # 判断 删除按钮 是否存在
-    def is_delete_exite(self):
-        return self.is_feature_exite(self.delete_button)
 
     # 点击 编辑
     def click_edit(self):
